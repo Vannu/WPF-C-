@@ -1,0 +1,54 @@
+﻿<Window x:Class="Productos.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:localvm="clr-namespace:Productos.ViewModel"
+        Title="MainWindow" Height="450" Width="800">
+
+    <Window.Resources>
+        <localvm:ProductoViewModel x:Key="objProducto" Id="1" Nombres="leche" Descripcion="litro" Categoria="bebidas"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35*"/>
+            <RowDefinition Height="230*"/>
+            <RowDefinition Height="35*"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Content="Id:" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="3,25,0,-17" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Grid.Row="0" Height="24" HorizontalAlignment="Left" Margin="3,26,0,-16" Name="IdTextBox" 
+                     Text="{Binding Id, Source={StaticResource objProducto}}" 
+                     VerticalAlignment="Center" Width="160" />
+                <Label Content="Nombres" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="367,26,-255,-18" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Grid.Row="0" Height="22" HorizontalAlignment="Left" Margin="449,30,-443,-18" Name="NombreTextBox" 
+                    Text="{Binding Nombres, Source={StaticResource objProducto}}" 
+                    VerticalAlignment="Center" Width="160" />
+                <Label Content="Descripcion" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="3,89,0,-83" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Grid.Row="0" Height="23" HorizontalAlignment="Left" Margin="3,90,-13,-81" Name="DescripcionTextBox" 
+                    Text="{Binding Descripcion, Source={StaticResource objProducto}}" 
+                    VerticalAlignment="Center" Width="160" />
+                <Label Content="Categoria" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" Margin="367,90,-304,-84" VerticalAlignment="Center" />
+                <TextBox Grid.Column="1" Grid.Row="0" Height="22" HorizontalAlignment="Left" Margin="449,93,-443,-83" Name="CategoriaTextBox" 
+                    Text="{Binding Categoria, Source={StaticResource objProducto}}" 
+                    VerticalAlignment="Center" Width="160" />
+                <Label Content="Activo" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" Margin="17,149,0,-141" VerticalAlignment="Center" RenderTransformOrigin="0.774,1.234"/>
+                <CheckBox Grid.Column="1" Grid.Row="0" Margin="3,152,82,-133" Name="ActivoCh"/>
+            </Grid>
+
+        </WrapPanel>
+
+
+    </Grid>
+</Window>
+
